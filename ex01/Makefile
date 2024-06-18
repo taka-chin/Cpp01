@@ -7,6 +7,8 @@ CXXFLAGS += -std=c++98
 CXXFLAGS += -g
 
 SRCS	:=	main.cpp \
+					Zombie.cpp \
+					zombieHorde.cpp \
 
 OBJS	:=	${SRCS:.cpp=.o}
 
