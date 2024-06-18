@@ -1,13 +1,12 @@
-#ifndef CPP01_EX00_Zombie_H_
-#define CPP01_EX00_Zombie_H_
+#include "Zombie.hpp"
+#include <iostream>
 
-#include <string>
+const std::string &Zombie::getName() { return name_; }
 
-class Zombie {
-private:
-  std::string name_;
+void Zombie::setName(std::string name) { name_ = name; }
 
-public:
-  void announce(void);
-};
-#endif
+void Zombie::announce(void) {
+  std::string name;
+  name = getName();
+  std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
