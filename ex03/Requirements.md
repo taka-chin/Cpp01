@@ -8,12 +8,21 @@
 # HumanAクラス
 ## private:
 	std::string name
-	Weapon weapon
+	Weapon &weapon
 ## public:
 	attack();
+	getter
+	setter
 
 # HumanBクラス
-## 同上
+## private:
+	std::string name
+	Weapon &weapon
+## public:
+	attack();
+	getter
+	setter
+	setWeapon
 
 # Diff HumanA and HumanB
 ## While HumanA takes the Weapon in its constructor, HumanB doesn’t.

@@ -9,6 +9,7 @@ CXXFLAGS += -g
 SRCS	:=	main.cpp \
 					Weapon.cpp \
 					HumanA.cpp \
+					HumanB.cpp \
 
 OBJS	:=	${SRCS:.cpp=.o}
 
