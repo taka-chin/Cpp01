@@ -1,4 +1,4 @@
-NAME = ex01
+NAME = ex04
 
 CXX = c++ 
 
