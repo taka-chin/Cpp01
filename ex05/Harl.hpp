@@ -8,10 +8,10 @@ private:
   void info(void);
   void warning(void);
   void error(void);
-	struct Level {
-				std::string level;
-				void (Harl::*f)(void);
-	};
+  struct Level {
+    std::string level;
+    void (Harl::*f)(void);
+  };
 
 public:
   void complain(std::string level);
