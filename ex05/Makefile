@@ -1,4 +1,4 @@
-NAME = ex01
+NAME = ex05
 
 CXX = c++ 
 
@@ -7,6 +7,7 @@ CXXFLAGS += -std=c++98
 CXXFLAGS += -g
 
 SRCS	:=	main.cpp \
+					Harl.cpp \
 
 OBJS	:=	${SRCS:.cpp=.o}
 
