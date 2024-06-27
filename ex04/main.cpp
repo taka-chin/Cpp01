@@ -1,28 +1,42 @@
+#include <cstddef>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 
 int main(int argc, char **argv) {
-  if (argc != 4)
-    exit(1);
-  std::string fileName;
+	if (argc != 4) exit(1);
+	std::string fileName;
 
-  std::string s1 = argv[1];
-  std::string s2 = argv[2];
-  fileName = argv[3];
-  fileName += ".replace,";
-  std::ifstream inputFile(argv[3]);
-  std::ofstream outputFile(fileName);
-  std::string line;
+	std::string s1 = argv[1];
+	std::string s2 = argv[2];
+	std::size_t pos = 0;
+	fileName = argv[3];
+	fileName += ".replace";
+	std::ifstream inputFile(argv[3]);
+	std::ofstream outputFile(fileName);
 
-  while (std::getline(inputFile, line)) {
-	  if(line.find(s1) != string::npos)
-	  {
-  			std::string newline = line.substr(0, line.find("s1")); 
-			newline += s2;
-	  }
-    outputFile << line << std::endl;
-    }
-  }
-  return 0;
+	std::cout << "File name: " << fileName << std::endl;
+	std::ifstream ifs(argv[3], std::ios::binary);
+	if (!ifs) {
+		std::cerr << "Error: file not found" << std::endl;
+		exit(1);
+	}
+	std::stringstream ss;
+	ss << ifs.rdbuf();
+	std::string Istr = ss.str();
+	while(true)
+	{
+		std::size_t tmpPos = Istr.find(s1,pos);
+		if(tmpPos == std::string::npos)
+		{
+			outputFile << Istr.substr(pos) ;
+				break;
+		}
+		size_t size = tmpPos - pos;
+		outputFile << Istr.substr(pos,size) ;
+		outputFile << s2 ;
+		pos = tmpPos + s1.length();
+	}
+	return(0);
 }
