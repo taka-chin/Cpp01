@@ -5,19 +5,18 @@
 #include <string>
 
 int main(int argc, char **argv) {
-	if (argc != 4) exit(1);
-	std::string fileName;
-
+	if (argc != 4)
+	{
+		std::cerr << "Invailed args" << std::endl;
+		exit(1);
+	}
 	std::string s1 = argv[1];
 	std::string s2 = argv[2];
+	std::string fileName = argv[3];
 	std::size_t pos = 0;
-	fileName = argv[3];
-	fileName += ".replace";
-	std::ifstream inputFile(argv[3]);
-	std::ofstream outputFile(fileName);
 
-	std::cout << "File name: " << fileName << std::endl;
-	std::ifstream ifs(argv[3], std::ios::binary);
+	std::ifstream inputFile(fileName);
+	std::ifstream ifs(fileName, std::ios::binary);
 	if (!ifs) {
 		std::cerr << "Error: file not found" << std::endl;
 		exit(1);
@@ -25,6 +24,9 @@ int main(int argc, char **argv) {
 	std::stringstream ss;
 	ss << ifs.rdbuf();
 	std::string Istr = ss.str();
+
+	fileName += ".replace";
+	std::ofstream outputFile(fileName);
 	while(true)
 	{
 		std::size_t tmpPos = Istr.find(s1,pos);
