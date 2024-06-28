@@ -13,6 +13,11 @@ int main(int argc, char **argv) {
 	}
 	std::string s1 = argv[1];
 	std::string s2 = argv[2];
+	if(s1.empty() || s2.empty()) 
+	{
+       std::cerr << "Error: empty string" << std::endl;
+       return(1);
+	}
 	const std::string fileName = argv[3];
 	std::string inputStr;
 
