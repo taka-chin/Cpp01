@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 		return(1);
 
 	const std::string newFileName = fileName + ".replace";
-	std::ofstream outputFile(newFileName);
+	std::ofstream outputFile(newFileName.c_str());
 	if (!outputFile) {
 		std::cerr << "Error: file not found" << std::endl;
 		return(1);
