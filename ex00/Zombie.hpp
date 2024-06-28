@@ -8,6 +8,7 @@ private:
   std::string name_;
 
 public:
+  Zombie();
   const std::string &getName();
   void setName(std::string name);
   void announce(void);
