@@ -4,8 +4,6 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror
 CXXFLAGS += -std=c++98
-CXXFLAGS += -g
-/* CXXFLAGS += -fsanitize=address */
 
 SRCS	:=	main.cpp \
 			Zombie.cpp \
