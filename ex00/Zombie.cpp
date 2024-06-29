@@ -1,6 +1,11 @@
 #include "Zombie.hpp"
 #include <iostream>
 
+Zombie::Zombie()
+{
+	std::cout << "constructor called"<<std::endl;
+}
+
 const std::string &Zombie::getName() { return name_; }
 
 void Zombie::setName(std::string name) { name_ = name; }
